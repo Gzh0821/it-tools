@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IconBrandGithub, IconBrandX, IconInfoCircle, IconMoon, IconSun } from '@tabler/icons-vue';
+import { IconBrandGithub, IconBrandX, IconInfoCircle, IconMoon, IconSun, IconGps } from '@tabler/icons-vue';
 import { useStyleStore } from '@/stores/style.store';
 
 const styleStore = useStyleStore();
@@ -7,15 +7,15 @@ const { isDarkTheme } = toRefs(styleStore);
 </script>
 
 <template>
+  <c-tooltip position="bottom">
+    <c-button circle variant="text" href="https://gaozih.com" target="_blank" :aria-label="$t('home.home')">
+      <n-icon size="25" :component="IconGps" />
+    </c-button>
+  </c-tooltip>
+
   <c-tooltip :tooltip="$t('home.nav.github')" position="bottom">
-    <c-button
-      circle
-      variant="text"
-      href="https://github.com/Gzh0821"
-      target="_blank"
-      rel="noopener noreferrer"
-      :aria-label="$t('home.nav.githubRepository')"
-    >
+    <c-button circle variant="text" href="https://github.com/Gzh0821" target="_blank"
+      :aria-label="$t('home.nav.githubRepository')">
       <n-icon size="25" :component="IconBrandGithub" />
     </c-button>
   </c-tooltip>
