@@ -61,28 +61,31 @@ const tools = computed<ToolCategory[]>(() => [
 
         <div class="footer">
           <div>
-            IT-Tools
+            IT-Tools(Gaozih Forked)
 
-            <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
+            <!-- <c-link target="_blank" rel="noopener" :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`">
               v{{ version }}
             </c-link>
 
             <template v-if="commitSha && commitSha.length > 0">
               -
-              <c-link
-                target="_blank"
-                rel="noopener"
-                type="primary"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
-              >
+              <c-link target="_blank" rel="noopener" type="primary"
+                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`">
                 {{ commitSha }}
               </c-link>
-            </template>
+            </template> -->
           </div>
           <div>
-            © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://corentin.tech?utm_source=it-tools&utm_medium=footer">
-              Corentin Thomasset
+            Copyright 2021-{{ new Date().getFullYear() }}
+            <c-link target="_blank" rel="noopener" href="https://gaozih.com">
+              Gaozih
+            </c-link>
+            ©<br>All Rights Reserved.
+          </div>
+          <div>
+            <c-link target="_blank" rel="noopener" type="primary"
+              href="https://github.com/CorentinTh/it-tools/">
+              Origin by CorentinTh
             </c-link>
           </div>
         </div>
@@ -91,12 +94,8 @@ const tools = computed<ToolCategory[]>(() => [
 
     <template #content>
       <div flex items-center justify-center gap-2>
-        <c-button
-          circle
-          variant="text"
-          :aria-label="$t('home.toggleMenu')"
-          @click="styleStore.isMenuCollapsed = !styleStore.isMenuCollapsed"
-        >
+        <c-button circle variant="text" :aria-label="$t('home.toggleMenu')"
+          @click="styleStore.isMenuCollapsed = !styleStore.isMenuCollapsed">
           <NIcon size="25" :component="Menu2" />
         </c-button>
 
@@ -107,7 +106,8 @@ const tools = computed<ToolCategory[]>(() => [
         </c-tooltip>
 
         <c-tooltip :tooltip="$t('home.uiLib')" position="bottom">
-          <c-button v-if="config.app.env === 'development'" to="/c-lib" circle variant="text" :aria-label="$t('home.uiLib')">
+          <c-button v-if="config.app.env === 'development'" to="/c-lib" circle variant="text"
+            :aria-label="$t('home.uiLib')">
             <icon-mdi:brush-variant text-20px />
           </c-button>
         </c-tooltip>
@@ -120,20 +120,14 @@ const tools = computed<ToolCategory[]>(() => [
           <NavbarButtons v-if="!styleStore.isSmallScreen" />
         </div>
 
-        <c-tooltip position="bottom" :tooltip="$t('home.support')">
-          <c-button
-            round
-            href="https://www.buymeacoffee.com/cthmsst"
-            rel="noopener"
-            target="_blank"
-            class="support-button"
-            :bordered="false"
-            @click="() => tracker.trackEvent({ eventName: 'Support button clicked' })"
-          >
+        <!-- <c-tooltip position="bottom" :tooltip="$t('home.support')">
+          <c-button round href="https://www.buymeacoffee.com/cthmsst" rel="noopener" target="_blank"
+            class="support-button" :bordered="false"
+            @click="() => tracker.trackEvent({ eventName: 'Support button clicked' })">
             {{ $t('home.buyMeACoffee') }}
             <NIcon v-if="!styleStore.isSmallScreen" :component="Heart" ml-2 />
           </c-button>
-        </c-tooltip>
+        </c-tooltip> -->
       </div>
       <slot />
     </template>
